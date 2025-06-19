@@ -1,4 +1,7 @@
 // src/client.ts
+import { GoogleSearchArgs } from './interfaces/toolArgs/googleSearchArgs'; // ★★★ 追加
+import { GoogleSearchResult } from './interfaces/toolResults/googleSearchResult'; // ★★★ 追加
+
 import {
   Client as SdkClient,
 } from '@modelcontextprotocol/sdk/client/index.js';
@@ -349,6 +352,11 @@ export class McpClient {
   async scrapeLawPage(args: ScrapeLawPageArgs, requestOptions?: McpClientRequestOptions): Promise<ScrapeLawPageResult> {
     const result = await this.callToolRaw('scrape_law_page', args as unknown as Record<string, any>, undefined, requestOptions);
     return this.parseToolResult<ScrapeLawPageResult>(result, 'scrape_law_page');
+  }
+
+  async googleSearch(args: GoogleSearchArgs,requestOptions?: McpClientRequestOptions): Promise<GoogleSearchResult> {
+    const result = await this.callToolRaw('google_search', args as unknown as Record<string, any>, undefined, requestOptions);
+    return this.parseToolResult<GoogleSearchResult>(result, 'google_search');
   }
 
   private parseToolResult<T>(result: CallToolResult, toolName: string): T {
