@@ -11,4 +11,5 @@ export interface CrawlWebsiteArgs {
   user_agent?: string;        // from Zod schema & exe help
   request_delay?: number;     // from Zod schema & exe help
   no_samedomain?: boolean;    // from Zod schema & exe help
+  main_content_only?: boolean;    // from Zod schema & exe help
 }

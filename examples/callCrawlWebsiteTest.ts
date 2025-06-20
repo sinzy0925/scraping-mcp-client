@@ -33,12 +33,14 @@ async function main() {
       console.log('\n--- Calling crawl_website tool ---');
 
       const toolArgs: CrawlWebsiteArgs = {
-        url: 'file:///C:/Users/sinzy/interceptor01/generated_links.html',
+        url: 'file:///C:/Users/sinzy/interceptor01/generated_links02.html',
         selector: 'a', // サーバーのスキーマでは必須
         max_depth: 1,
         headless_mode: false,
         apply_stealth: false,
-        no_samedomain: true, // ★ 直接実行時の --no-samedomain に合わせる
+        no_samedomain: true, 
+        main_content_only: true,
+        // ★ 直接実行時の --no-samedomain に合わせる
         // 他の引数も必要に応じて設定 (サーバーのスキーマとexeのヘルプを参照)
       };
 
